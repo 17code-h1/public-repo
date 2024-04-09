@@ -1,17 +1,7 @@
 pull_request_rules:
-  - name: automatic merge when CI checks pass and at least one approved review
+  - name: dismiss reviews when new commits are pushed, if the label "re-review" is present
     conditions:
-        
-      - label = automerge
-      - "#approved-reviews-by>=1"
+      - base=main
+      - label=re-review
     actions:
-      merge:
-        method: squash
-        commit_message_template: |
-            {{ title }} (#{{ number }})
-
-            {{ body }}
-
-            {% for user in approved_reviews_by %}
-            Approved-By: {{user}}
-            {% endfor %}
+      dismiss_reviews:
