@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: dismiss reviews when new commits are pushed, if the label "re-review" is present.
+  - name: dismiss reviews when new commits are pushed, if the label "re-review" is present..
     conditions:
       - base=main
       - label=re-review
