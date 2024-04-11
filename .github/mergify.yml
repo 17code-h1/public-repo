@@ -1,7 +1,14 @@
 pull_request_rules:
-  - name: dismiss reviews when new commits are pushed, if the label "re-review" is present..
+  - name: merge except on new year day
+    conditions:
+      - current-datetime!=2023-01-01T00:00/2023-01-01T23:59[Europe/Paris]
+    actions:
+      merge: 
+  - name: >-
+      dismiss reviews when new commits are pushed, if the label "re-review" is
+      present..
     conditions:
       - base=main
       - label=re-review
     actions:
-      dismiss_reviews:
+      dismiss_reviews: 
