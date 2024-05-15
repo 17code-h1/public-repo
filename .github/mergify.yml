@@ -1,4 +1,10 @@
 pull_request_rules:
+ - name: add a label with the name of the branch
+    conditions: []
+    actions:
+      label:
+        add:
+          - "branch:{{base}}"
   - name: add "WIP" label when the title contains "WIP"
     conditions:
       - title~=WIP
